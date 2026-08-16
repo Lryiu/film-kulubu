@@ -35,18 +35,6 @@
       "metin": "<p>...</p>",
       "podcastUrl": "",
       "yayinda": true
-    },
-    {
-      "no": 55,
-      "baslik": "Testing",
-      "altBaslik": "test",
-      "yonetmen": "test",
-      "tarih": "2026-05-05",
-      "katilimci": 5,
-      "sure": "88 dk",
-      "podcastUrl": "https://lryiu.com",
-      "metin": "<p>test</p>",
-      "yayinda": true
     }
   ]
 }

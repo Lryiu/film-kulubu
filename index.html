@@ -150,7 +150,7 @@
 
     const [guncel, ...eskiler] = seanslar;
     document.getElementById('hero-ticket').innerHTML = `
-      <div class="ticket-art"><div class="filmtitle">${guncel.baslik}</div></div>
+      <div class="ticket-art" style="${guncel.gorselUrl ? `background-image:linear-gradient(180deg, rgba(14,20,23,0) 35%, rgba(14,20,23,0.92)), url('${guncel.gorselUrl}'); background-size:cover; background-position:center;` : ''}"><div class="filmtitle">${guncel.baslik}</div></div>
       <div class="ticket-info">
         <div class="seans-no">SEANS № ${String(guncel.no).padStart(3,'0')} — ${fmtTarih(guncel.tarih).toUpperCase()}</div>
         <h1>${guncel.altBaslik || guncel.baslik}</h1>
@@ -170,7 +170,7 @@
       strip.innerHTML = '<div class="empty">Henüz arşivde başka seans yok — bu ilk seansınız!</div>';
     } else {
       strip.innerHTML = eskiler.map(s => `
-        <div class="frame" onclick="location.href='seans.html?no=${s.no}'">
+        <div class="frame" onclick="location.href='seans.html?no=${s.no}'" style="${s.gorselUrl ? `background-image:linear-gradient(160deg, rgba(14,20,23,0.55), rgba(14,20,23,0.85)), url('${s.gorselUrl}'); background-size:cover; background-position:center;` : ''}">
           <div>
             <div class="fno">№ ${String(s.no).padStart(3,'0')}</div>
             <h3>${s.baslik}</h3>

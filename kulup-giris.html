@@ -94,6 +94,9 @@
     <label for="podcastUrl">Podcast / kayıt linki</label>
     <input id="podcastUrl" type="url" placeholder="https://...">
 
+    <label for="gorselUrl">Afiş / kapak görseli linki (opsiyonel)</label>
+    <input id="gorselUrl" type="url" placeholder="https://...">
+
     <label for="metin">Tartışma metni</label>
     <textarea id="metin" placeholder="Seansta konuşulanları buraya yaz. Paragraflar için boş satır bırak."></textarea>
 
@@ -138,6 +141,7 @@
       katilimci: Number(document.getElementById('katilimci').value) || null,
       sure: document.getElementById('sure').value,
       podcastUrl: document.getElementById('podcastUrl').value,
+      gorselUrl: document.getElementById('gorselUrl').value,
       metin: metinParagraflar,
       yayinda: true
     };

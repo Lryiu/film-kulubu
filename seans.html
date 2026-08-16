@@ -63,6 +63,7 @@
       return;
     }
     el.innerHTML = `
+      ${s.gorselUrl ? `<img src="${s.gorselUrl}" alt="${s.baslik}" style="width:100%; border-radius:2px; border:1px solid var(--rule); margin-bottom:8px; display:block;">` : ''}
       <div class="seans-no">SEANS № ${String(s.no).padStart(3,'0')} — ${fmtTarih(s.tarih).toUpperCase()}</div>
       <h1>${s.altBaslik || s.baslik}</h1>
       <div class="meta">

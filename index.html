@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seans Defteri — Film Kulübü</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1417; --ink-2:#161F24; --ink-3:#1D272D;
+    --cream:#EDE7D8; --cream-dim:#B9B2A0;
+    --amber:#E4A23E; --amber-dim:#9C6E2C;
+    --moss:#5C7A67; --moss-dim:#3A4E42;
+    --rule:rgba(237,231,216,0.14); --rule-strong:rgba(237,231,216,0.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--ink); color:var(--cream); font-family:'Newsreader', serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 32px;}
+  .eyebrow{font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--amber);}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:500; line-height:1.05;}
+
+  .sprocket{width:100%; height:20px; background-image:repeating-linear-gradient(90deg, var(--ink-3) 0 10px, transparent 10px 26px); background-position:center; position:relative;}
+  .sprocket::before,.sprocket::after{content:""; position:absolute; left:0; right:0; height:1px; background:var(--rule);}
+  .sprocket::before{top:0;} .sprocket::after{bottom:0;}
+
+  nav{position:sticky; top:0; z-index:100; background:rgba(14,20,23,0.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--rule);}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .wordmark{font-family:'Fraunces', serif; font-size:22px; font-weight:600;}
+  .wordmark em{color:var(--amber); font-style:italic; font-weight:500;}
+  .navlinks{display:flex; gap:36px; font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;}
+  .navlinks a{color:var(--cream-dim); border-bottom:1px solid transparent; padding-bottom:4px; transition:color .2s, border-color .2s;}
+  .navlinks a:hover{color:var(--amber); border-color:var(--amber);}
+
+  .hero{padding:88px 0 72px;}
+  .ticket{display:grid; grid-template-columns:340px 1fr; background:var(--ink-2); border:1px solid var(--rule-strong); border-radius:2px; overflow:hidden; position:relative;}
+  .ticket::after{content:""; position:absolute; top:0; bottom:0; left:340px; width:0; border-left:2px dashed var(--rule-strong);}
+  .ticket-art{position:relative; background:radial-gradient(circle at 30% 20%, rgba(228,162,62,0.35), transparent 55%), radial-gradient(circle at 75% 80%, rgba(92,122,103,0.5), transparent 60%), linear-gradient(160deg,#1B2530,#0C1114 70%); min-height:420px; display:flex; align-items:flex-end;}
+  .ticket-art::before{content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(115deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 6px); mix-blend-mode:overlay;}
+  .ticket-art .filmtitle{position:relative; padding:28px 26px; font-family:'Fraunces', serif; font-style:italic; font-size:30px; line-height:1.15; color:var(--cream); text-shadow:0 2px 18px rgba(0,0,0,0.6);}
+  .ticket-info{padding:40px 44px; display:flex; flex-direction:column; justify-content:center; gap:18px;}
+  .seans-no{font-family:'Space Mono', monospace; font-size:13px; color:var(--moss); letter-spacing:0.08em;}
+  .ticket-info h1{font-size:38px; margin-top:4px;}
+  .ticket-meta{display:flex; flex-wrap:wrap; gap:10px 26px; font-family:'Space Mono', monospace; font-size:12px; color:var(--cream-dim); padding-top:6px; border-top:1px solid var(--rule);}
+  .ticket-meta span b{color:var(--cream); font-weight:400;}
+  .ticket-cta{display:flex; gap:14px; margin-top:8px; flex-wrap:wrap;}
+  .btn{font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; padding:13px 22px; border-radius:2px; border:1px solid var(--rule-strong); transition:all .2s; cursor:pointer; background:none; color:var(--cream);}
+  .btn-solid{background:var(--amber); color:var(--ink); border-color:var(--amber);}
+  .btn-solid:hover{background:#F0B25A;}
+  .btn-ghost:hover{border-color:var(--amber); color:var(--amber);}
+
+  .manifesto{padding:80px 0; text-align:center;}
+  .manifesto blockquote{font-family:'Fraunces', serif; font-style:italic; font-size:clamp(24px,3.4vw,38px); line-height:1.4; max-width:780px; margin:0 auto;}
+  .manifesto blockquote span{color:var(--amber);}
+  .manifesto .attrib{margin-top:22px; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--cream-dim);}
+
+  .section{padding:80px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:44px; gap:24px; flex-wrap:wrap;}
+  .section-head h2{font-size:34px;}
+  .section-head p{font-family:'Newsreader', serif; font-style:italic; color:var(--cream-dim); max-width:360px; font-size:15px; line-height:1.6;}
+
+  .strip{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule);}
+  .frame{background:var(--ink); padding:26px 22px 24px; position:relative; transition:background .25s; min-height:210px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;}
+  .frame:hover{background:var(--ink-2);}
+  .frame .fno{font-family:'Space Mono', monospace; font-size:11px; color:var(--moss); letter-spacing:0.08em;}
+  .frame h3{font-size:19px; font-weight:500; margin-top:10px; line-height:1.25;}
+  .frame .fmeta{font-family:'Space Mono', monospace; font-size:10.5px; color:var(--cream-dim); margin-top:16px; display:flex; justify-content:space-between; align-items:center;}
+  .frame .fmeta .arrow{color:var(--amber); opacity:0; transform:translateX(-4px); transition:all .2s;}
+  .frame:hover .fmeta .arrow{opacity:1; transform:translateX(0);}
+  .empty{padding:40px; font-family:'Space Mono', monospace; font-size:12px; color:var(--cream-dim); text-align:center; grid-column:1/-1;}
+
+  @media (max-width:900px){.strip{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.strip{grid-template-columns:1fr;}}
+
+  footer{border-top:1px solid var(--rule); padding:48px 0 40px;}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  footer .fmark{font-family:'Fraunces', serif; font-style:italic; font-size:16px; color:var(--cream-dim);}
+  footer .flinks{display:flex; gap:22px; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--cream-dim);}
+  footer .flinks a:hover{color:var(--amber);}
+
+  @media (max-width:760px){
+    .ticket{grid-template-columns:1fr;} .ticket::after{display:none;} .ticket-art{min-height:260px;}
+    .ticket-info{padding:32px 26px;} .ticket-info h1{font-size:28px;} .wrap{padding:0 20px;} .navlinks{gap:18px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="wordmark">Seans <em>Defteri</em></div>
+    <div class="navlinks"><a href="#arsiv">Arşiv</a><a href="#manifesto">Hakkında</a></div>
+  </div>
+</nav>
+
+<div class="sprocket"></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Şu an gösterimde</div>
+  <div id="hero-ticket" class="ticket" style="margin-top:18px;">
+    <div class="ticket-info"><div class="empty" style="padding:0;">Yükleniyor…</div></div>
+  </div>
+</div></section>
+
+<div class="sprocket"></div>
+
+<section class="manifesto" id="manifesto"><div class="wrap">
+  <blockquote>Amacımız hemfikir olmak değil — <span>farklı okumaları</span> duymak, dinlemek ve belki de aynı filme bambaşka bir pencereden yeniden bakabilmek.</blockquote>
+  <div class="attrib">Film Kulübü Manifestosu</div>
+</div></section>
+
+<section class="section" id="arsiv"><div class="wrap">
+  <div class="section-head">
+    <h2>Arşiv</h2>
+    <p>Geçmiş seanslarda konuşulan filmler — her biri bir metin ve bir kayıt olarak burada.</p>
+  </div>
+  <div id="strip" class="strip"><div class="empty">Yükleniyor…</div></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fmark">Her hafta bir seans, her seans bir bakış açısı.</div>
+  <div class="flinks"><a href="#arsiv">Arşiv</a><a href="#manifesto">Hakkında</a></div>
+</div></footer>
+
+<script>
+  const AY = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
+  function fmtTarih(iso){
+    const d = new Date(iso + "T00:00:00");
+    return `${d.getDate()} ${AY[d.getMonth()]} ${d.getFullYear()}`;
+  }
+
+  async function boot(){
+    let data;
+    try{
+      const res = await fetch('data/seanslar.json', {cache:'no-store'});
+      data = await res.json();
+    }catch(e){
+      document.getElementById('strip').innerHTML = '<div class="empty">seanslar.json okunamadı. Bu dosyanın index.html ile aynı yerde olduğundan emin ol.</div>';
+      return;
+    }
+    const seanslar = (data.seanslar || []).filter(s => s.yayinda !== false).sort((a,b) => b.no - a.no);
+    if(seanslar.length === 0){
+      document.getElementById('hero-ticket').innerHTML = '<div class="ticket-info"><div class="empty" style="padding:0;">Henüz bir seans eklenmedi.</div></div>';
+      document.getElementById('strip').innerHTML = '<div class="empty">Arşiv boş.</div>';
+      return;
+    }
+
+    const [guncel, ...eskiler] = seanslar;
+    document.getElementById('hero-ticket').innerHTML = `
+      <div class="ticket-art"><div class="filmtitle">${guncel.baslik}</div></div>
+      <div class="ticket-info">
+        <div class="seans-no">SEANS № ${String(guncel.no).padStart(3,'0')} — ${fmtTarih(guncel.tarih).toUpperCase()}</div>
+        <h1>${guncel.altBaslik || guncel.baslik}</h1>
+        <div class="ticket-meta">
+          <span>Yönetmen: <b>${guncel.yonetmen || '—'}</b></span>
+          <span>Katılımcılar: <b>${guncel.katilimci || '—'} kişi</b></span>
+          <span>Süre: <b>${guncel.sure || '—'}</b></span>
+        </div>
+        <div class="ticket-cta">
+          <button class="btn btn-solid" onclick="location.href='seans.html?no=${guncel.no}'">Metni Oku</button>
+          ${guncel.podcastUrl ? `<a class="btn btn-ghost" href="${guncel.podcastUrl}" target="_blank">Kaydı Dinle</a>` : ''}
+        </div>
+      </div>`;
+
+    const strip = document.getElementById('strip');
+    if(eskiler.length === 0){
+      strip.innerHTML = '<div class="empty">Henüz arşivde başka seans yok — bu ilk seansınız!</div>';
+    } else {
+      strip.innerHTML = eskiler.map(s => `
+        <div class="frame" onclick="location.href='seans.html?no=${s.no}'">
+          <div>
+            <div class="fno">№ ${String(s.no).padStart(3,'0')}</div>
+            <h3>${s.baslik}</h3>
+          </div>
+          <div class="fmeta"><span>${fmtTarih(s.tarih)}</span><span class="arrow">Oku →</span></div>
+        </div>`).join('');
+    }
+  }
+  boot();
+</script>
+
+</body>
+</html>

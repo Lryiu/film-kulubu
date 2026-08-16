@@ -1,0 +1,40 @@
+{
+  "seanslar": [
+    {
+      "no": 14,
+      "baslik": "Stalker",
+      "altBaslik": "Bölge'nin sessizliğinde ne arıyorduk?",
+      "yonetmen": "Andrei Tarkovsky",
+      "tarih": "2026-08-17",
+      "katilimci": 3,
+      "sure": "52 dk",
+      "metin": "<p>Bu haftaki seansta Tarkovsky'nin Bölge'sini konuştuk...</p>",
+      "podcastUrl": "",
+      "yayinda": true
+    },
+    {
+      "no": 13,
+      "baslik": "In the Mood for Love",
+      "altBaslik": "Söylenmeyenin ritmi",
+      "yonetmen": "Wong Kar-wai",
+      "tarih": "2026-08-10",
+      "katilimci": 3,
+      "sure": "47 dk",
+      "metin": "<p>...</p>",
+      "podcastUrl": "",
+      "yayinda": true
+    },
+    {
+      "no": 12,
+      "baslik": "Ayna",
+      "altBaslik": "Hafızanın kurgusu üzerine",
+      "yonetmen": "Andrei Tarkovsky",
+      "tarih": "2026-07-27",
+      "katilimci": 4,
+      "sure": "61 dk",
+      "metin": "<p>...</p>",
+      "podcastUrl": "",
+      "yayinda": true
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Seans Defteri — Yeni Seans Ekle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Newsreader:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1417; --ink-2:#161F24; --cream:#EDE7D8; --cream-dim:#B9B2A0;
+    --amber:#E4A23E; --moss:#5C7A67; --rule:rgba(237,231,216,0.14); --rule-strong:rgba(237,231,216,0.28);
+    --err:#D9694F;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--ink); color:var(--cream); font-family:'Newsreader', serif; min-height:100vh; padding:60px 20px;
+    background-image:radial-gradient(circle at 50% 0%, rgba(228,162,62,0.07), transparent 60%);}
+  .wrap{max-width:520px; margin:0 auto;}
+  .tag{font-family:'Space Mono', monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--moss); display:block; text-align:center;}
+  h1{font-family:'Fraunces', serif; font-weight:500; font-style:italic; font-size:28px; text-align:center; margin:14px 0 36px;}
+  .panel{background:var(--ink-2); border:1px solid var(--rule-strong); border-radius:2px; padding:38px; position:relative;}
+  .panel::before{content:""; position:absolute; top:-1px; left:0; right:0; height:2px; background:repeating-linear-gradient(90deg, var(--amber) 0 6px, transparent 6px 14px);}
+  label{display:block; font-family:'Space Mono', monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cream-dim); margin-bottom:7px; margin-top:18px;}
+  label:first-of-type{margin-top:0;}
+  input, textarea{
+    width:100%; background:var(--ink); border:1px solid var(--rule); color:var(--cream);
+    font-family:'Newsreader', serif; font-size:14px; padding:11px 13px; border-radius:2px;
+  }
+  input[type=password]{font-family:'Space Mono', monospace;}
+  textarea{min-height:120px; resize:vertical; line-height:1.6;}
+  input:focus, textarea:focus{outline:none; border-color:var(--amber);}
+  .row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  button{
+    width:100%; margin-top:26px; padding:14px; background:var(--amber); color:var(--ink); border:none; border-radius:2px;
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer;
+  }
+  button:hover{background:#F0B25A;}
+  button:disabled{opacity:0.5; cursor:wait;}
+  #msg{margin-top:16px; font-family:'Space Mono', monospace; font-size:11.5px; line-height:1.6; text-align:center; min-height:16px;}
+  #msg.ok{color:var(--moss);}
+  #msg.err{color:var(--err);}
+  .lockscreen{text-align:center;}
+  .hidden{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="tag">Yalnızca kulüp yöneticisi</span>
+  <h1>Yeni seans ekle</h1>
+
+  <div class="panel" id="lock">
+    <div class="lockscreen">
+      <label for="pw">Yönetici şifresi</label>
+      <input id="pw" type="password" placeholder="••••••••" autocomplete="current-password">
+      <button onclick="unlock()">Girişi aç</button>
+      <div id="lockmsg"></div>
+    </div>
+  </div>
+
+  <form class="panel hidden" id="form" onsubmit="submitSeans(event)">
+    <label for="no">Seans numarası</label>
+    <input id="no" type="number" placeholder="15" required>
+
+    <div class="row">
+      <div>
+        <label for="baslik">Film adı</label>
+        <input id="baslik" type="text" placeholder="Örn. Persona" required>
+      </div>
+      <div>
+        <label for="yonetmen">Yönetmen</label>
+        <input id="yonetmen" type="text" placeholder="Örn. Ingmar Bergman">
+      </div>
+    </div>
+
+    <label for="altBaslik">Tartışma başlığı</label>
+    <input id="altBaslik" type="text" placeholder="Örn. İki kadının sınırı nerede çizilir?">
+
+    <div class="row">
+      <div>
+        <label for="tarih">Tarih</label>
+        <input id="tarih" type="date" required>
+      </div>
+      <div>
+        <label for="katilimci">Katılımcı sayısı</label>
+        <input id="katilimci" type="number" placeholder="3">
+      </div>
+    </div>
+
+    <label for="sure">Kayıt süresi</label>
+    <input id="sure" type="text" placeholder="Örn. 52 dk">
+
+    <label for="podcastUrl">Podcast / kayıt linki</label>
+    <input id="podcastUrl" type="url" placeholder="https://...">
+
+    <label for="metin">Tartışma metni</label>
+    <textarea id="metin" placeholder="Seansta konuşulanları buraya yaz. Paragraflar için boş satır bırak."></textarea>
+
+    <button type="submit" id="submitBtn">Seansı yayınla</button>
+    <div id="msg"></div>
+  </form>
+</div>
+
+<script>
+  let sessionPw = null;
+
+  function unlock(){
+    const pw = document.getElementById('pw').value;
+    if(!pw){
+      document.getElementById('lockmsg').textContent = 'Şifre boş olamaz.';
+      return;
+    }
+    // Gerçek doğrulama sunucu tarafında (save-seans fonksiyonunda) yapılır.
+    // Burada sadece formu açıyoruz; yanlış şifreyle "yayınla" dediğinde sunucu reddedecek.
+    sessionPw = pw;
+    document.getElementById('lock').classList.add('hidden');
+    document.getElementById('form').classList.remove('hidden');
+    document.getElementById('tarih').valueAsDate = new Date();
+  }
+
+  async function submitSeans(e){
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('msg');
+    btn.disabled = true;
+    msg.className = ''; msg.textContent = 'Gönderiliyor…';
+
+    const metinParagraflar = document.getElementById('metin').value
+      .split(/\n\s*\n/).filter(p => p.trim()).map(p => `<p>${p.trim()}</p>`).join('');
+
+    const yeniSeans = {
+      no: Number(document.getElementById('no').value),
+      baslik: document.getElementById('baslik').value,
+      altBaslik: document.getElementById('altBaslik').value,
+      yonetmen: document.getElementById('yonetmen').value,
+      tarih: document.getElementById('tarih').value,
+      katilimci: Number(document.getElementById('katilimci').value) || null,
+      sure: document.getElementById('sure').value,
+      podcastUrl: document.getElementById('podcastUrl').value,
+      metin: metinParagraflar,
+      yayinda: true
+    };
+
+    try{
+      const res = await fetch('/api/save-seans', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ password: sessionPw, seans: yeniSeans })
+      });
+      const out = await res.json();
+      if(!res.ok) throw new Error(out.error || 'Bilinmeyen hata');
+      msg.className = 'ok';
+      msg.textContent = '✓ Yayınlandı. Site birkaç dakika içinde güncellenecek.';
+      document.getElementById('form').reset();
+    }catch(err){
+      msg.className = 'err';
+      msg.textContent = '✗ ' + err.message + ' — /api/save-seans fonksiyonu henüz devreye alınmadıysa bu beklenen bir durumdur, README.md dosyasına bak.';
+    }finally{
+      btn.disabled = false;
+    }
+  }
+</script>
+</body>
+</html>

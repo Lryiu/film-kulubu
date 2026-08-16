@@ -35,6 +35,19 @@
       "metin": "<p>...</p>",
       "podcastUrl": "",
       "yayinda": true
+    },
+    {
+      "no": 3,
+      "baslik": "test",
+      "altBaslik": "test",
+      "yonetmen": "test",
+      "tarih": "2026-08-17",
+      "katilimci": 3,
+      "sure": "88",
+      "podcastUrl": "https://lryiu.com",
+      "gorselUrl": "https://raw.githubusercontent.com/Lryiu/film-kulubu/main/stalker.jpg",
+      "metin": "<p>test</p>",
+      "yayinda": true
     }
   ]
 }

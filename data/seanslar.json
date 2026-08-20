@@ -48,6 +48,19 @@
       "gorselUrl": "https://raw.githubusercontent.com/Lryiu/film-kulubu/main/stalker.jpg",
       "metin": "<p>test</p>",
       "yayinda": true
+    },
+    {
+      "no": 1,
+      "baslik": "Backrooms",
+      "altBaslik": "Bu filmin derdi ne?",
+      "yonetmen": "Kane Parsons",
+      "tarih": "2026-08-17",
+      "katilimci": 4,
+      "sure": "88 dk.",
+      "podcastUrl": "https://soundcloud.com/lryiu/backrooms-film-okumas?si=404b643049c149ab8e3d6a0a4522f638&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "gorselUrl": "https://raw.githubusercontent.com/Lryiu/film-kulubu/main/backrooms.jpg",
+      "metin": "<p>Bütün o karanlık kurgunun, sarı duvarların ve cızırtılı floresanların ortasında duran şey aslında çok basit ama bir o kadar da ürkütücü: İnsan, özgürleşmek adına kendi üzerine kilitlediği kapıların anahtarını kaybetmiş durumda.</p><p>Metnin çekirdeğinde yatan ilk büyük trajedimiz bu: Çürümeyi Konfor Bellemek. Terapist Mary’nin travmalardan kaçmak ve zihinsel duvarları aşmak için önerdiği o \"içsel pencere\" fikri, danışanı Clark’ın elinde tam bir narsist zindana dönüşüyor. Clark, değişmenin ve iyileşmenin getireceği o sancılı sorumluluktan kaçmak için Backrooms’un yozlaşmış kopyalar matrisini seçiyor. Çünkü orada iyileşmek zorunda değil; dükkanını tanıtırken giydiği o abartılı korsan kostümünün devi olarak gezip, kendi çürütülmüş krallığında bir efsane gibi yaşayabilir. Yani insan, özgürleşmekten umudu kestiğinde kendi cehennemini mabet belleyip oraya tapan bir mahluka dönüşüyor.</p><p>İkinci büyük düğüm ise Kaçışın Geçirgenliği ve Klein Şişesi Paradoksu. Mary, o devleşmiş kopyayı çocukluğundan kalan beton parçasıyla ezip geçtiğinde kurtulduğunu sanıyor. Fakat fırlatıldığı yer yine bir camın, yine bir bürokratik yapının yanlış tarafı. İçi dışı olmayan bir yapıda yürüyoruz: Döngüyü kırdığını, o hayati pencereyi açtığını sandığın an, aslında başladığın yerin bir alt katındaki daha kötü, daha hafızasız bir kopyanın tavanında asılı kalıyorsun.</p><p>Metin, tam da bu noktada Mathieu Pageau’nun Anlam (Cennet) ve Madde (Yeryüzü) teorisini önümüze koyuyor:</p><p>Bir sayfadaki mürekkep sadece leke değildir, bir düşünceyi taşır.</p><p>Anlamı maddeden söküp aldığınızda geriye sadece işlevsiz lekeler, yani Backrooms’un o monoton sarı odaları kalır.</p><p>Anlamından koparılmış, hedefsizce kopyalanan her düzen, en nihayetinde en vahşi kaosa evrilir.</p><p>Ve en nihayetinde bu anlatı bizi Postmodern bir Narnia fantezisiyle baş başa bırakıyor. Narnia’da dolabın kapısından geçen çocuklar kendi dünyalarının ne kadar derin ve anlamlı olduğunu keşfederken; Backrooms’un kapısını aralayan modern insan, arkada daha ulvi bir evren bulmuyor. Sadece daha fazla dolap, daha fazla boş koridor ve derin bir anlam krizi buluyor.</p><p>Kutsal mekanlarını yitiren insanlık, bugün hedefsizce eşiklerde gezinip kendi ördüğü beton kutuların içinde nihilizmi gülümseyerek kucaklıyor.</p>",
+      "yayinda": true
     }
   ]
 }

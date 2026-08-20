@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seans — Film Kulübü</title>
+<title>MESAFE Seans Defteri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -26,7 +26,8 @@
   h1{font-family:'Fraunces', serif; font-weight:500; font-size:clamp(30px,4vw,46px); line-height:1.1; margin-top:14px;}
   .meta{display:flex; flex-wrap:wrap; gap:10px 24px; font-family:'Space Mono', monospace; font-size:12px; color:var(--cream-dim); margin-top:22px; padding:18px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);}
   .meta b{color:var(--cream); font-weight:400;}
-  .podcast{margin-top:28px; padding:18px 20px; background:var(--ink-2); border:1px solid var(--rule); border-radius:2px; font-family:'Space Mono', monospace; font-size:12px;}
+  .poster{width:100%; max-height:360px; object-fit:cover; object-position:center 20%; border-radius:2px; border:1px solid var(--rule); margin-bottom:8px; display:block;}
+  .podcast{margin-top:28px; padding:18px 20px; background:var(--ink-2); border:1px solid var(--rule); border-radius:2px; font-family:'Space Mono', monospace; font-size:12px; word-break:break-all; overflow-wrap:anywhere; line-height:1.7;}
   .body-text{margin-top:36px; font-size:18px; line-height:1.8; color:var(--cream);}
   .body-text p{margin-bottom:20px;}
   .notfound{padding:120px 0; text-align:center; font-family:'Space Mono', monospace; color:var(--cream-dim);}
@@ -34,7 +35,7 @@
 </head>
 <body>
 <nav><div class="inner">
-  <div class="wordmark">Seans <em>Defteri</em></div>
+  <div class="wordmark">MESAFE <em>Seans Defteri</em></div>
   <a class="back" href="index.html">← Arşive dön</a>
 </div></nav>
 
@@ -63,7 +64,7 @@
       return;
     }
     el.innerHTML = `
-      ${s.gorselUrl ? `<img src="${s.gorselUrl}" alt="${s.baslik}" style="width:100%; border-radius:2px; border:1px solid var(--rule); margin-bottom:8px; display:block;">` : ''}
+      ${s.gorselUrl ? `<img class="poster" src="${s.gorselUrl}" alt="${s.baslik}">` : ''}
       <div class="seans-no">SEANS № ${String(s.no).padStart(3,'0')} — ${fmtTarih(s.tarih).toUpperCase()}</div>
       <h1>${s.altBaslik || s.baslik}</h1>
       <div class="meta">
@@ -72,7 +73,7 @@
         <span>Katılımcılar: <b>${s.katilimci || '—'} kişi</b></span>
         <span>Süre: <b>${s.sure || '—'}</b></span>
       </div>
-      ${s.podcastUrl ? `<div class="podcast">🎧 Bu seansın kaydını dinlemek için: <a href="${s.podcastUrl}" target="_blank">${s.podcastUrl}</a></div>` : ''}
+      ${s.podcastUrl ? `<div class="podcast">🎧 <a href="${s.podcastUrl}" target="_blank">Bu seansın kaydını dinle →</a></div>` : ''}
       <div class="body-text">${s.metin || '<p>Bu seans için henüz bir metin eklenmedi.</p>'}</div>
     `;
   }

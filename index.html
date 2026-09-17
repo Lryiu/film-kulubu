@@ -62,16 +62,20 @@
   .section-head h2{font-size:34px;}
   .section-head p{font-family:'Newsreader', serif; font-style:italic; color:var(--cream-dim); max-width:360px; font-size:15px; line-height:1.6;}
 
-  .strip{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 300px)); gap:1px; background:var(--rule); border:1px solid var(--rule); justify-content:start;}
-  @media (max-width:640px){.strip{grid-template-columns:1fr;}}
-  .frame{background:var(--ink); padding:26px 22px 24px; position:relative; transition:background .25s; min-height:210px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;}
-  .frame:hover{background:var(--ink-2);}
+  .strip{display:flex; flex-direction:column; border-top:1px solid var(--rule);}
+  .frame{display:flex; align-items:center; gap:24px; padding:20px 4px; border-bottom:1px solid var(--rule); cursor:pointer; transition:padding-left .2s, background .2s;}
+  .frame:hover{padding-left:14px; background:linear-gradient(90deg, rgba(228,162,62,0.06), transparent);}
+  .frame .fthumb{width:64px; height:64px; flex:none; border-radius:2px; background-size:cover; background-position:center; background-color:var(--ink-2); box-shadow:inset 0 0 0 1px var(--rule);}
   .frame .fno{font-family:'Space Mono', monospace; font-size:11px; color:var(--moss); letter-spacing:0.08em;}
-  .frame h3{font-size:19px; font-weight:500; margin-top:10px; line-height:1.25;}
-  .frame .fmeta{font-family:'Space Mono', monospace; font-size:10.5px; color:var(--cream-dim); margin-top:16px; display:flex; justify-content:space-between; align-items:center;}
-  .frame .fmeta .arrow{color:var(--amber); opacity:0; transform:translateX(-4px); transition:all .2s;}
-  .frame:hover .fmeta .arrow{opacity:1; transform:translateX(0);}
-  .empty{padding:40px; font-family:'Space Mono', monospace; font-size:12px; color:var(--cream-dim); text-align:center; grid-column:1/-1;}
+  .frame h3{font-size:19px; font-weight:500; margin-top:4px; line-height:1.25;}
+  .frame .fbody{flex:1; min-width:0;}
+  .frame .fdate{font-family:'Space Mono', monospace; font-size:11px; color:var(--cream-dim); flex:none; margin-left:12px;}
+  .frame .arrow{color:var(--amber); opacity:0; transform:translateX(-4px); transition:all .2s; flex:none; font-family:'Space Mono', monospace; font-size:12px; margin-left:12px;}
+  .frame:hover .arrow{opacity:1; transform:translateX(0);}
+  .empty{padding:40px 4px; font-family:'Space Mono', monospace; font-size:12px; color:var(--cream-dim); text-align:center;}
+  @media (max-width:560px){
+    .frame{gap:16px;} .frame .fthumb{width:48px; height:48px;} .frame .fdate{display:none;}
+  }
 
 
 
@@ -109,7 +113,7 @@
 
 <section class="manifesto" id="manifesto"><div class="wrap">
   <blockquote>Amacımız hemfikir olmak değil — <span>farklı okumaları</span> duymak, dinlemek ve belki de aynı filme bambaşka bir pencereden yeniden bakabilmek.</blockquote>
-  <div class="attrib">Film Kulübü Manifestosu</div>
+  <div class="attrib">MESAFE Film Kulübü</div>
 </div></section>
 
 <section class="section" id="arsiv"><div class="wrap">
@@ -170,12 +174,14 @@
       strip.innerHTML = '<div class="empty">Henüz arşivde başka seans yok — bu ilk seansınız!</div>';
     } else {
       strip.innerHTML = eskiler.map(s => `
-        <div class="frame" onclick="location.href='seans.html?no=${s.no}'" style="${s.gorselUrl ? `background-image:linear-gradient(160deg, rgba(14,20,23,0.55), rgba(14,20,23,0.85)), url('${s.gorselUrl}'); background-size:cover; background-position:center;` : ''}">
-          <div>
+        <div class="frame" onclick="location.href='seans.html?no=${s.no}'">
+          <div class="fthumb" style="${s.gorselUrl ? `background-image:url('${s.gorselUrl}');` : ''}"></div>
+          <div class="fbody">
             <div class="fno">№ ${String(s.no).padStart(3,'0')}</div>
             <h3>${s.baslik}</h3>
           </div>
-          <div class="fmeta"><span>${fmtTarih(s.tarih)}</span><span class="arrow">Oku →</span></div>
+          <div class="fdate">${fmtTarih(s.tarih)}</div>
+          <div class="arrow">Oku →</div>
         </div>`).join('');
     }
   }

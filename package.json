@@ -1,0 +1,7 @@
+{
+  "name": "film-kulubu",
+  "private": true,
+  "scripts": {
+    "build": "node build-seans.js"
+  }
+}

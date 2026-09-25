@@ -1,7 +1,9 @@
 // build-seans.js — Vercel her yayında (deploy) bunu otomatik çalıştırır.
-// data/seanslar.json'daki her yayındaki seans için /seans/<film-adi>/index.html
+// Sitenin tüm dosyalarını "public" klasörüne kopyalar (Vercel yayını oradan yapar),
+// sonra data/seanslar.json'daki her yayındaki seans için /seans/<film-adi>/index.html
 // sayfası ve sitemap.xml üretir. Elle bir şey yapmana gerek yok:
 // kulup-giris.html'den seans eklediğinde sayfalar kendiliğinden oluşur.
+// (api/ klasörü kopyalanmaz; Vercel onu ayrıca, olduğu yerden çalıştırır.)
 const fs = require('fs');
 const path = require('path');
 
@@ -10,6 +12,18 @@ const SPOTIFY = 'https://open.spotify.com/show/1GaFAqQgvZM0wSgx0Sr8Cq';
 const PERSON = { '@type': 'Person', '@id': 'https://lryiu.com/#person', name: 'Gamze Güçkıran Chartrand Cossette', alternateName: 'Lryiu', url: 'https://lryiu.com/' };
 const AY = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
 const ROOT = __dirname;
+const OUT = path.join(ROOT, 'public');
+// Yayına kopyalanmayacaklar: sunucu kodu, ayar ve yapım dosyaları
+const SKIP = new Set(['api', 'public', 'node_modules', '.git', '.github', '.vercel', 'package.json', 'package-lock.json', 'build-seans.js', 'vercel.json', 'README.md']);
+
+function copySite() {
+  fs.rmSync(OUT, { recursive: true, force: true });
+  fs.mkdirSync(OUT, { recursive: true });
+  for (const name of fs.readdirSync(ROOT)) {
+    if (SKIP.has(name) || name.startsWith('.')) continue;
+    fs.cpSync(path.join(ROOT, name), path.join(OUT, name), { recursive: true });
+  }
+}
 
 const esc = (t) => String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const jsonLd = (o) => JSON.stringify(o, null, 2).replace(/<\//g, '<\\/');
@@ -191,8 +205,8 @@ function main() {
   const all = (data.seanslar || []).filter((s) => s && s.yayinda !== false && s.no != null && s.baslik);
   const slugs = slugMap(all);
   const sorted = all.slice().sort((a, b) => a.no - b.no);
-  const outDir = path.join(ROOT, 'seans');
-  fs.rmSync(outDir, { recursive: true, force: true }); // yayından kalkan seansların eski sayfaları da silinsin
+  copySite();
+  const outDir = path.join(OUT, 'seans');
   sorted.forEach((s, i) => {
     const dir = path.join(outDir, slugs[s.no]);
     fs.mkdirSync(dir, { recursive: true });
@@ -200,7 +214,7 @@ function main() {
   });
   const last = sorted.map((s) => isoDate(s.tarih)).filter(Boolean).sort().pop();
   const urls = [{ loc: SITE + '/', lastmod: last }].concat(sorted.map((s) => ({ loc: `${SITE}/seans/${slugs[s.no]}/`, lastmod: isoDate(s.tarih) })));
-  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
+  fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     urls.map((u) => `  <url>\n    <loc>${esc(u.loc)}</loc>\n${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}  </url>`).join('\n') + '\n</urlset>\n');
   console.log(`Seans sayfaları üretildi: ${sorted.length} sayfa (${sorted.map((s) => slugs[s.no]).join(', ')})`);

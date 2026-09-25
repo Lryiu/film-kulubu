@@ -196,6 +196,23 @@
     return `${d.getDate()} ${AY[d.getMonth()]} ${d.getFullYear()}`;
   }
 
+  // Her seansın kendi sayfası: /seans/<film-adi>/  (build-seans.js ile birebir aynı kural)
+  function slugify(t){
+    return String(t || '').toLocaleLowerCase('tr-TR')
+      .replace(/ç/g,'c').replace(/ğ/g,'g').replace(/ı/g,'i').replace(/ö/g,'o').replace(/ş/g,'s').replace(/ü/g,'u')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-').replace(/-+/g,'-');
+  }
+  function slugMap(list){
+    const map = {}, used = {};
+    list.slice().sort((a,b) => a.no - b.no).forEach(s => {
+      let slug = slugify(s.baslik) || ('seans-' + s.no);
+      if (used[slug]) slug = slug + '-' + s.no;
+      used[slug] = true; map[s.no] = slug;
+    });
+    return map;
+  }
+
   async function boot(){
     let data;
     try{
@@ -212,6 +229,8 @@
       return;
     }
 
+    const SLUG = slugMap(seanslar);
+    const href = s => '/seans/' + SLUG[s.no] + '/';
     const [guncel, ...eskiler] = seanslar;
     document.getElementById('hero-ticket').innerHTML = `
       <div class="ticket-art" style="${guncel.gorselUrl ? `background-image:linear-gradient(180deg, rgba(14,20,23,0) 35%, rgba(14,20,23,0.92)), url('${guncel.gorselUrl}'); background-size:cover; background-position:center;` : ''}"><div class="filmtitle">${guncel.baslik}</div></div>
@@ -224,7 +243,7 @@
           <span>Süre: <b>${guncel.sure || '—'}</b></span>
         </div>
         <div class="ticket-cta">
-          <button class="btn btn-solid" onclick="location.href='seans.html?no=${guncel.no}'">Metni Oku</button>
+          <a class="btn btn-solid" href="${href(guncel)}">Metni Oku</a>
           ${guncel.podcastUrl ? `<a class="btn btn-ghost" href="${guncel.podcastUrl}" target="_blank">Kaydı Dinle</a>` : ''}
         </div>
       </div>`;
@@ -234,7 +253,7 @@
       strip.innerHTML = '<div class="empty">Henüz arşivde başka seans yok — bu ilk seansınız!</div>';
     } else {
       strip.innerHTML = eskiler.map(s => `
-        <div class="frame" onclick="location.href='seans.html?no=${s.no}'">
+        <a class="frame" href="${href(s)}">
           <div class="fthumb" style="${s.gorselUrl ? `background-image:url('${s.gorselUrl}');` : ''}"></div>
           <div class="fbody">
             <div class="fno">№ ${String(s.no).padStart(3,'0')}</div>
@@ -242,7 +261,7 @@
           </div>
           <div class="fdate">${fmtTarih(s.tarih)}</div>
           <div class="arrow">Oku →</div>
-        </div>`).join('');
+        </a>`).join('');
     }
   }
   boot();

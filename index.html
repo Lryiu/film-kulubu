@@ -4,6 +4,62 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MESAFE Seans Defteri — Film Kulübü</title>
+<meta name="description" content="MESAFE Film Kulübü'nün seans defteri: her buluşmada bir film, farklı okumalar. Seans metinleri, film tartışmaları ve podcast kayıtları.">
+<link rel="canonical" href="https://film.lryiu.com/">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0E1417">
+
+<!-- Paylaşım kartı -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MESAFE Seans Defteri">
+<meta property="og:url" content="https://film.lryiu.com/">
+<meta property="og:title" content="MESAFE Seans Defteri — Film Kulübü">
+<meta property="og:description" content="Her buluşmada bir film, farklı okumalar. Seans metinleri ve podcast kayıtları.">
+<meta property="og:image" content="https://film.lryiu.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MESAFE Seans Defteri — Film Kulübü">
+<meta name="twitter:description" content="Her buluşmada bir film, farklı okumalar.">
+<meta name="twitter:image" content="https://film.lryiu.com/og-image.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://film.lryiu.com/#website",
+      "url": "https://film.lryiu.com/",
+      "name": "MESAFE Seans Defteri",
+      "alternateName": "MESAFE Film Kulübü",
+      "inLanguage": "tr",
+      "creator": { "@id": "https://lryiu.com/#person" },
+      "isPartOf": { "@type": "Periodical", "name": "Mesafe Dergi", "url": "https://www.mesafe.pub/" }
+    },
+    {
+      "@type": "PodcastSeries",
+      "name": "Mesafe Film Kulübü",
+      "url": "https://open.spotify.com/show/1GaFAqQgvZM0wSgx0Sr8Cq",
+      "inLanguage": "tr",
+      "author": { "@id": "https://lryiu.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://lryiu.com/#person",
+      "name": "Gamze Güçkıran Chartrand Cossette",
+      "alternateName": ["Lryiu", "LRYIU"],
+      "url": "https://lryiu.com/",
+      "sameAs": ["https://gamzeguckiran.com/"]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -82,8 +138,11 @@
   footer{border-top:1px solid var(--rule); padding:48px 0 40px;}
   footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
   footer .fmark{font-family:'Fraunces', serif; font-style:italic; font-size:16px; color:var(--cream-dim);}
-  footer .flinks{display:flex; gap:22px; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--cream-dim);}
+  footer .flinks{display:flex; flex-wrap:wrap; gap:10px 22px; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--cream-dim);}
+  footer .flinks a{white-space:nowrap;}
   footer .flinks a:hover{color:var(--amber);}
+  footer .fcredit{width:100%; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.06em; color:var(--cream-dim); opacity:.7;}
+  footer .fcredit a{color:var(--amber-dim);} footer .fcredit a:hover{color:var(--amber);}
 
   @media (max-width:760px){
     .ticket{grid-template-columns:1fr;} .ticket::after{display:none;} .ticket-art{min-height:260px;}
@@ -126,7 +185,8 @@
 
 <footer><div class="wrap">
   <div class="fmark">Her hafta bir seans, her seans bir bakış açısı.</div>
-  <div class="flinks"><a href="#arsiv">Arşiv</a><a href="#manifesto">Hakkında</a><a href="https://www.mesafe.pub" target="_blank" rel="noopener">MESAFE Dergi</a></div>
+  <div class="flinks"><a href="#arsiv">Arşiv</a><a href="#manifesto">Hakkında</a><a href="https://open.spotify.com/show/1GaFAqQgvZM0wSgx0Sr8Cq" target="_blank" rel="noopener" lang="en">Spotify</a><a href="https://www.mesafe.pub" target="_blank" rel="noopener">MESAFE Dergi</a></div>
+  <div class="fcredit">Sunan: <a href="https://lryiu.com/" target="_blank" rel="noopener">Lryiu</a></div>
 </div></footer>
 
 <script>

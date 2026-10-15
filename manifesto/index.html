@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifesto — MESAFE Seans Defteri</title>
+<meta name="description" content="Mesafe-Film-Okuma: Bir Anayasa. MESAFE Film Kulübü'nde bir filmi birlikte okumanın çerçevesi.">
+<link rel="canonical" href="https://film.lryiu.com/manifesto/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0E1417">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MESAFE Seans Defteri">
+<meta property="og:url" content="https://film.lryiu.com/manifesto/">
+<meta property="og:title" content="Manifesto — MESAFE Film Kulübü">
+<meta property="og:description" content="Mesafe-Film-Okuma: Bir Anayasa.">
+<meta property="og:image" content="https://film.lryiu.com/og-image.jpg">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1417; --ink-2:#161F24; --cream:#EDE7D8; --cream-dim:#B9B2A0;
+    --amber:#E4A23E; --moss:#5C7A67; --rule:rgba(237,231,216,0.14); --rule-strong:rgba(237,231,216,0.28);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; scroll-padding-top:96px;}
+  body{background:var(--ink); color:var(--cream); font-family:'Newsreader', serif; -webkit-font-smoothing:antialiased;}
+  a{color:var(--amber); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:720px; margin:0 auto; padding:0 32px;}
+  nav.top{position:sticky; top:0; z-index:100; background:rgba(14,20,23,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--rule);}
+  nav.top .inner{max-width:720px; margin:0 auto; padding:0 32px; height:76px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .wordmark{font-family:'Fraunces', serif; font-size:20px; font-weight:600; color:var(--cream);}
+  .wordmark em{color:var(--amber); font-style:italic; font-weight:500;}
+  .wordmark:hover{text-decoration:none;}
+  .toplinks{display:flex; gap:20px; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;}
+  .toplinks a{color:var(--cream-dim); white-space:nowrap;}
+  .toplinks a:hover, .toplinks a[aria-current]{color:var(--amber); text-decoration:none;}
+  main{padding:64px 0 100px;}
+  .eyebrow{font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--moss);}
+  h1{font-family:'Fraunces', serif; font-weight:500; font-size:clamp(32px,4.4vw,48px); line-height:1.1; margin-top:14px;}
+  .lead{font-size:20px; line-height:1.7; color:var(--cream-dim); font-style:italic; margin-top:18px;}
+  .toc{margin-top:32px; padding:18px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:flex; flex-wrap:wrap; gap:10px 22px; font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.04em;}
+  .toc a{color:var(--cream-dim);} .toc a:hover{color:var(--amber); text-decoration:none;}
+  .join{margin-top:36px; padding:24px; background:var(--ink-2); border:1px solid var(--rule-strong); border-radius:2px; display:flex; align-items:center; justify-content:space-between; gap:16px 24px; flex-wrap:wrap;}
+  .join p{font-size:17px; line-height:1.6; color:var(--cream); flex:1 1 280px;}
+  .btn{display:inline-block; font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; padding:13px 22px; border-radius:2px; border:1px solid var(--amber); background:var(--amber); color:var(--ink); white-space:nowrap;}
+  .btn:hover{background:#F0B25A; text-decoration:none;}
+  section{margin-top:64px;}
+  h2{font-family:'Fraunces', serif; font-weight:500; font-size:30px; line-height:1.15;}
+  .body-text{margin-top:18px; font-size:18px; line-height:1.8;}
+  .body-text p{margin-bottom:16px;}
+  .body-text b{font-weight:500; color:var(--cream);}
+  ol.steps{list-style:none; counter-reset:s; margin-top:22px; border-top:1px solid var(--rule);}
+  ol.steps li{counter-increment:s; display:grid; grid-template-columns:44px 1fr; gap:4px 12px; padding:16px 0; border-bottom:1px solid var(--rule); font-size:18px; line-height:1.7;}
+  ol.steps li::before{content:counter(s, decimal-leading-zero); font-family:'Space Mono', monospace; font-size:12px; color:var(--moss); padding-top:6px;}
+  ol.steps b{font-weight:500; color:var(--cream);}
+  .films{margin-top:22px; display:flex; flex-direction:column; gap:12px;}
+  .film{padding:18px 20px; background:var(--ink-2); border:1px solid var(--rule); border-radius:2px;}
+  .film h3{font-family:'Fraunces', serif; font-weight:500; font-size:21px; line-height:1.25;}
+  .film .fmeta{font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.06em; color:var(--moss); margin-top:6px; text-transform:uppercase;}
+  .film p{font-size:17px; line-height:1.7; color:var(--cream-dim); margin-top:10px;}
+  .note{font-size:15px; font-style:italic; color:var(--cream-dim); margin-top:12px;}
+  details{border-bottom:1px solid var(--rule);}
+  details:first-of-type{border-top:1px solid var(--rule); margin-top:22px;}
+  summary{cursor:pointer; list-style:none; padding:16px 32px 16px 0; font-family:'Fraunces', serif; font-size:19px; line-height:1.4; position:relative;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+"; position:absolute; right:4px; top:14px; font-family:'Space Mono', monospace; color:var(--amber); font-size:18px;}
+  details[open] summary::after{content:"–";}
+  details p{font-size:17px; line-height:1.75; color:var(--cream-dim); padding:0 0 18px;}
+  footer{border-top:1px solid var(--rule); padding:36px 0 40px; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.06em; color:var(--cream-dim);}
+  footer .wrap{display:flex; justify-content:space-between; gap:12px 20px; flex-wrap:wrap;}
+  footer a{color:var(--cream-dim);} footer a:hover{color:var(--amber);}
+  @media (max-width:560px){
+    .wrap, nav.top .inner{padding:0 20px;} .wordmark{font-size:16px;} .toplinks{gap:14px; font-size:10px;}
+    .body-text, ol.steps li{font-size:17px;} .join{padding:20px;}
+  }
+  .mani h2{font-size:24px; margin-top:44px;}
+  .mani h2 .n{font-family:'Space Mono', monospace; font-size:13px; color:var(--amber); margin-right:10px; vertical-align:middle;}
+  .mani ul{margin:14px 0 0 0; list-style:none;}
+  .mani ul li{padding:12px 0 12px 18px; border-left:1px solid var(--rule-strong); margin-bottom:10px; font-size:18px; line-height:1.75;}
+  .byline{font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cream-dim); margin-top:18px;}
+</style>
+</head>
+<body>
+<nav class="top"><div class="inner">
+  <a class="wordmark" href="/">MESAFE <em>Seans Defteri</em></a>
+  <div class="toplinks"><a href="/rehber/">Rehber</a><a href="/manifesto/" aria-current="page">Manifesto</a><a href="/#arsiv">Arşiv</a></div>
+</div></nav>
+
+<main class="wrap mani">
+  <div class="eyebrow">Manifesto</div>
+  <h1>Mesafe-Film-Okuma: Bir Anayasa</h1>
+  <div class="byline">Taha Altaylı</div>
+  <p class="lead">Bir filmi birlikte izlemek kolaydır; onu birlikte okumak ise ayrı bir disiplin ister. Bu metin, o disiplinin, aramızdaki samimiyeti kaybetmeden, nasıl bir çerçeveye oturacağını anlatıyor.</p>
+
+  <h2><span class="n">01</span>Çerçeve, samimiyetin düşmanı değil, koruyucusudur.</h2>
+  <div class="body-text"><p>Yan yana sohbet etmekle bir yayın yapmak aynı şey değil; biliyoruz. Ama çerçevesiz bir sohbet, sonunda ne süreyi tutturur ne de post-prodüksiyonda kimseye kolaylık sağlar. O yüzden bir düzenimiz olacak: önce hızlı, sürprizsiz sorularla ("konu nedir", "hangi perdeler var" gibi) tempolu bir giriş; sonra, o çerçeve bir kere kurulduktan sonra, serbest zamanda gerçek tartışmaya, gerçek anlaşmazlığa açılan bir alan.</p></div>
+
+  <h2><span class="n">02</span>Moderatör, bir polis değil, bir çoban.</h2>
+  <div class="body-text"><p>Yönlendirme, susturmak için değil, herkesin sırası geldiğinde konuşabilmesi için var. Moderatörün elindeki soru, aslında bir kapı; kapıyı zamanında açıp kapatmak, sohbeti boğmaz, ona nefes aldırır.</p></div>
+
+  <h2><span class="n">03</span>Hazırlıksız gelmek, ilk seferin masumiyetiydi; artık değil.</h2>
+  <div class="body-text"><p>İlk okumanın heyecanı, o anlık "hmm"lamaları, duraksamaları hoş görülebilirdi, bir başlangıçtı çünkü. Ama bundan sonra, her üyenin, konuşacağı filme dair küçük bir not, bir ön hazırlıkla gelmesi bekleniyor.</p></div>
+
+  <h2 id="hazirlik"><span class="n">04</span>Kendini nasıl hazırlarsın: üç aşama</h2>
+  <ul>
+    <li><b>İzlerken:</b> İlk seyirde not almayın, sadece izleyin, filmin sizi nasıl etkilediğine dikkat edin. İkinci bir seyirde (mümkünse), sizi durduran üç-dört sahneyi, üç-dört soruyu not edin.</li>
+    <li><b>Düşünürken:</b> Filmin hangi üç perdede ilerlediğini, hangi karakterin hangi dönüşümü yaşadığını kendinize kısaca özetleyin. Filmin sorduğu asıl soruyu bir cümleyle yazmaya çalışın, bu cümle tartışmada sizin pusulanız olacak.</li>
+    <li><b>Konuşurken:</b> "Bu sahne bende şunu uyandırdı" diye başlayan, kişisel gözlemi paylaşın; ama tartışmayı "bence doğrusu şu" ile kapatmayın, bir soru bırakarak devredin.</li>
+  </ul>
+
+  <h2><span class="n">05</span>Sıradaki sorular önceden bilinebilir, cevapları bilinemez.</h2>
+  <div class="body-text"><p>"Filmin konusu nedir", "hangi perdeler var" gibi sorular herkese önceden söylenebilir. Sürpriz olması gereken, bu soruların cevapları, bizim onlara getireceğimiz farklı okumalardır, sorunun kendisi değil.</p></div>
+
+  <h2><span class="n">06</span>Zaman, bir düşman değil, bir disiplin aracıdır.</h2>
+  <div class="body-text"><p>Post-prodüksiyonda yük az olsun, konuşma dağılmasın diye, süreye saygı göstereceğiz. Bu, düşüncelerimizi kısaltmak değil, onları daha keskin söylemeyi öğrenmek demek.</p></div>
+
+  <h2><span class="n">07</span>Bir kaynak köşesi.</h2>
+  <div class="body-text"><p>İsteyen, filme dair düşüncesini derinleştirmek için şu kitaplara bakabilir, elbette zorunlu değil, ama bir zemin sunuyorlar:</p></div>
+  <ul>
+    <li>Bordwell &amp; Thompson, <i>Film Art</i> (sinema dilinin temel kavramları için)</li>
+    <li>Robert McKee, <i>Story</i> (perde yapısı ve karakter yolculuğu için)</li>
+    <li>Dücane Cündioğlu, <i>Sinema ve Felsefe</i> (filmi felsefi bir soru olarak okumak için)</li>
+  </ul>
+
+  <div class="join">
+    <p>Yeni misin? Nasıl katılacağını ve bir buluşmanın nasıl ilerlediğini rehberde bulabilirsin.</p>
+    <a class="btn" href="/rehber/">Rehbere git</a>
+  </div>
+</main>
+
+<footer><div class="wrap">
+  <span>MESAFE Film Kulübü · Sunan: <a href="https://lryiu.com/" target="_blank" rel="noopener">Lryiu</a></span>
+  <span><a href="https://open.spotify.com/show/1GaFAqQgvZM0wSgx0Sr8Cq" target="_blank" rel="noopener" lang="en">Spotify</a> · <a href="https://www.mesafe.pub" target="_blank" rel="noopener">MESAFE Dergi</a></span>
+</div></footer>
+</body>
+</html>

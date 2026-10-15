@@ -113,6 +113,14 @@
   .manifesto blockquote span{color:var(--amber);}
   .manifesto .attrib{margin-top:22px; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--cream-dim);}
 
+  .manifesto .mlink{display:inline-block; margin-top:26px; font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--amber); border-bottom:1px solid transparent;}
+  .manifesto .mlink:hover{border-color:var(--amber);}
+  .joinbar{margin-top:28px; padding:24px 28px; border:1px solid var(--rule-strong); border-radius:2px; background:var(--ink-2); display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;}
+  .joinbar > div{flex:1 1 320px;}
+  .joinbar p{margin-top:8px; font-size:17px; line-height:1.6; color:var(--cream-dim);}
+  .joinbar p a{color:var(--amber);} .joinbar p a:hover{text-decoration:underline;}
+  .joinbar .btn{white-space:nowrap;}
+
   .section{padding:80px 0;}
   .section-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:44px; gap:24px; flex-wrap:wrap;}
   .section-head h2{font-size:34px;}
@@ -148,6 +156,9 @@
     .ticket{grid-template-columns:1fr;} .ticket::after{display:none;} .ticket-art{min-height:260px;}
     .ticket-info{padding:32px 26px;} .ticket-info h1{font-size:28px;} .wrap{padding:0 20px;} .navlinks{gap:18px;}
   }
+  @media (max-width:600px){
+    .wordmark{font-size:18px;} .navlinks{gap:14px; font-size:10.5px;} .nav-dergi{display:none;} .joinbar{padding:20px;}
+  }
 </style>
 </head>
 <body>
@@ -155,7 +166,7 @@
 <nav>
   <div class="wrap">
     <div class="wordmark">MESAFE <em>Seans Defteri</em></div>
-    <div class="navlinks"><a href="#arsiv">Arşiv</a><a href="#manifesto">Hakkında</a><a href="https://www.mesafe.pub" target="_blank" rel="noopener">MESAFE Dergi</a></div>
+    <div class="navlinks"><a href="#arsiv">Arşiv</a><a href="/rehber/">Rehber</a><a href="/manifesto/">Manifesto</a><a class="nav-dergi" href="https://www.mesafe.pub" target="_blank" rel="noopener">MESAFE Dergi</a></div>
   </div>
 </nav>
 
@@ -166,6 +177,13 @@
   <div id="hero-ticket" class="ticket" style="margin-top:18px;">
     <div class="ticket-info"><div class="empty" style="padding:0;">Yükleniyor…</div></div>
   </div>
+  <div class="joinbar">
+    <div>
+      <div class="eyebrow">Bir sonraki buluşma</div>
+      <p>Buluşmalarımız hep aynı Google Meet odasında. Tarih ve saat WhatsApp grubunda duyurulur. İlk kez mi geliyorsun? <a href="/rehber/">Rehbere göz at.</a></p>
+    </div>
+    <a class="btn btn-solid" href="https://meet.google.com/xjk-eixj-ghq" target="_blank" rel="noopener">Buluşmaya katıl</a>
+  </div>
 </div></section>
 
 <div class="sprocket"></div>
@@ -173,6 +191,7 @@
 <section class="manifesto" id="manifesto"><div class="wrap">
   <blockquote>Amacımız hemfikir olmak değil <span>farklı okumaları</span> duymak, dinlemek ve aynı filme bambaşka bir pencereden bakabilmek.</blockquote>
   <div class="attrib">MESAFE Film Kulübü</div>
+  <a class="mlink" href="/manifesto/">Manifestoyu oku →</a>
 </div></section>
 
 <section class="section" id="arsiv"><div class="wrap">
@@ -184,8 +203,8 @@
 </div></section>
 
 <footer><div class="wrap">
-  <div class="fmark">Her hafta bir seans, her seans bir bakış açısı.</div>
-  <div class="flinks"><a href="#arsiv">Arşiv</a><a href="#manifesto">Hakkında</a><a href="https://open.spotify.com/show/1GaFAqQgvZM0wSgx0Sr8Cq" target="_blank" rel="noopener" lang="en">Spotify</a><a href="https://www.mesafe.pub" target="_blank" rel="noopener">MESAFE Dergi</a></div>
+  <div class="fmark">On beş günde bir seans, her seans bir bakış açısı.</div>
+  <div class="flinks"><a href="#arsiv">Arşiv</a><a href="/rehber/">Rehber</a><a href="/manifesto/">Manifesto</a><a href="https://meet.google.com/xjk-eixj-ghq" target="_blank" rel="noopener">Buluşmaya katıl</a><a href="https://open.spotify.com/show/1GaFAqQgvZM0wSgx0Sr8Cq" target="_blank" rel="noopener" lang="en">Spotify</a><a href="https://www.mesafe.pub" target="_blank" rel="noopener">MESAFE Dergi</a></div>
   <div class="fcredit">Sunan: <a href="https://lryiu.com/" target="_blank" rel="noopener">Lryiu</a></div>
 </div></footer>
 

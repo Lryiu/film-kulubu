@@ -1,0 +1,21 @@
+{
+  "_aciklama": "Üye listesi. Her okumadan sonra güncellenir. Durumlar: k = katıldı, i = izinli (haber verdi), d = dönüş yapmadı. Bir üyenin hiç kaydı olmayan okumalar, o henüz üye değilken yapılmış demektir. 'sectigi': o üyenin seçip eş-moderatörlük yaptığı okuma numaraları.",
+  "okumalar": [
+    { "no": 1, "film": "Backrooms" },
+    { "no": 2, "film": "Triangle of Sadness" },
+    { "no": 3, "film": "Buğday" },
+    { "no": 4, "film": "Reservoir Dogs" },
+    { "no": 5, "film": "Mommy" }
+  ],
+  "uyeler": [
+    { "ad": "Lryiu", "kurucu": true, "durum": { "1": "k", "2": "k", "3": "k", "4": "k", "5": "k" } },
+    { "ad": "Ayşe Melis", "durum": { "1": "k", "2": "k", "3": "k", "4": "i", "5": "i" } },
+    { "ad": "Çağlar Acar", "durum": { "2": "k", "3": "k", "4": "k", "5": "k" } },
+    { "ad": "Elif Sıla Gönen", "durum": { "4": "k", "5": "i" } },
+    { "ad": "Gülpembe Aydın", "durum": {} },
+    { "ad": "İbrahim Ozan Ceberut", "durum": { "2": "k", "3": "k", "4": "k", "5": "i" } },
+    { "ad": "Mert Çelik", "durum": { "1": "k", "2": "d", "3": "d", "4": "d", "5": "i" } },
+    { "ad": "Taha Altaylı", "durum": { "2": "k", "3": "i", "4": "k", "5": "k" } },
+    { "ad": "Yusuf Gazve Katırcıoğlu", "durum": { "4": "k", "5": "k" } }
+  ]
+}

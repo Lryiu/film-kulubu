@@ -213,7 +213,7 @@ function main() {
     fs.writeFileSync(path.join(dir, 'index.html'), page(s, slugs[s.no], sorted[i - 1], sorted[i + 1], slugs));
   });
   const last = sorted.map((s) => isoDate(s.tarih)).filter(Boolean).sort().pop();
-  const urls = [{ loc: SITE + '/', lastmod: last }, { loc: SITE + '/rehber/' }, { loc: SITE + '/manifesto/' }].concat(sorted.map((s) => ({ loc: `${SITE}/seans/${slugs[s.no]}/`, lastmod: isoDate(s.tarih) })));
+  const urls = [{ loc: SITE + '/', lastmod: last }, { loc: SITE + '/rehber/' }, { loc: SITE + '/uyelerimiz/' }, { loc: SITE + '/manifesto/' }].concat(sorted.map((s) => ({ loc: `${SITE}/seans/${slugs[s.no]}/`, lastmod: isoDate(s.tarih) })));
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     urls.map((u) => `  <url>\n    <loc>${esc(u.loc)}</loc>\n${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}  </url>`).join('\n') + '\n</urlset>\n');

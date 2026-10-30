@@ -11,6 +11,7 @@
     { "ad": "Lryiu", "kurucu": true, "durum": { "1": "k", "2": "k", "3": "k", "4": "k", "5": "k" } },
     { "ad": "Ayşe Melis", "durum": { "1": "k", "2": "k", "3": "k", "4": "i", "5": "i" } },
     { "ad": "Çağlar Acar", "durum": { "2": "k", "3": "k", "4": "k", "5": "k" } },
+    { "ad": "Emrah Sakallıoğlu", "durum": { "5": "i" } },
     { "ad": "Elif Sıla Gönen", "durum": { "4": "k", "5": "i" } },
     { "ad": "Gülpembe Aydın", "durum": {} },
     { "ad": "İbrahim Ozan Ceberut", "durum": { "2": "k", "3": "k", "4": "k", "5": "i" } },

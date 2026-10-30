@@ -146,10 +146,10 @@
     <div class="ladder">
       <div class="rung"><div><span class="ad">Davetli</span><span class="esik">Henüz okuma yok</span></div><p>Okumalara katılır, sorularını gönderir. Kulübe ilk adım.</p></div>
       <div class="rung"><div><span class="ad">Seyirci</span><span class="esik">1–2 okuma</span></div><p>Film önerebilir. Önerisi, sıradaki filmlerin seçildiği havuza girer.</p></div>
-      <div class="rung ust"><div><span class="ad">Müdavim</span><span class="esik">3–4 okuma</span></div><p>Havuzdan film seçip o okumada Lryiu'yla birlikte moderatörlük yapabilir. Seçme sırası müdavimler arasında döner.</p></div>
+      <div class="rung ust"><div><span class="ad">Müdavim</span><span class="esik">3–4 okuma</span></div><p>Havuzdan film seçip o okumada Lryiu'yla birlikte moderatörlük yapabilir. Müdavimler bu işi sırayla üstlenir; her okumada filmi bir başkası seçer.</p></div>
       <div class="rung ust"><div><span class="ad">Sinefil</span><span class="esik">5–9 okuma</span></div><p>Kulübe yeni üye davet edebilir. Her yeni üye, bir sinefilin davetlisidir.</p></div>
       <div class="rung ust"><div><span class="ad">Loca</span><span class="esik">10 ve üstü</span></div><p>En üst unvan. Sezonda bir kez ara seans hakkı vardır: sıradaki filmlerin arasına kendi seçtiği bir filmi koyar. Sezon sonunda kulübün yılın filmini seçer.</p></div>
-      <div class="rung ust"><div><span class="ad">Kurucu</span><span class="esik">Kazanılmaz</span></div><p>Yalnızca Lryiu'nundur. Her okumanın ana moderatörüdür.</p></div>
+      <div class="rung ust"><div><span class="ad">Kurucu</span></div><p>Kulübün kurucusu Lryiu. Her okumanın ana moderatörü.</p></div>
     </div>
   </section>
 
@@ -206,7 +206,7 @@
     }).join('') : '<i class="ti ti-sparkles iz" aria-hidden="true"></i>';
     var ozet;
     if (u.kurucu) ozet = 'Her okumanın ana moderatörü';
-    else if (!x.seri.length) ozet = 'İlk okumasını bekliyoruz';
+    else if (!x.k) ozet = 'İlk okumasını bekliyoruz';
     else if (x.tam && x.k > 1) ozet = 'Katıldığından beri her okumada';
     else {
       var p = [x.k + ' okumada'];

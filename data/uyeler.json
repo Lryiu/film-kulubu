@@ -1,5 +1,5 @@
 {
-  "_aciklama": "Üye listesi. Her okumadan sonra güncellenir. Durumlar: k = katıldı, i = izinli (haber verdi), d = dönüş yapmadı. Bir üyenin hiç kaydı olmayan okumalar, o henüz üye değilken yapılmış demektir. 'sectigi': o üyenin seçip eş-moderatörlük yaptığı okuma numaraları.",
+  "_aciklama": "Üye listesi. Her okumadan sonra güncellenir. Durumlar: k = katıldı, i = izinli (haber verdi), d = dönüş yapmadı. Bir üyenin hiç kaydı olmayan okumalar, o henüz üye değilken yapılmış demektir. 'sectigi': o üyenin seçip eş-moderatörlük yaptığı okuma numaraları. 'sonSans': kurallar yeni olduğu için bir kereye mahsus listeden düşmeyip 'Dönüş bekleniyor'da kalır; bir sonraki okumada da dönüş yoksa bu alan silinir.",
   "okumalar": [
     { "no": 1, "film": "Backrooms" },
     { "no": 2, "film": "Triangle of Sadness" },
@@ -13,7 +13,7 @@
     { "ad": "Çağlar Acar", "durum": { "2": "k", "3": "k", "4": "k", "5": "k" } },
     { "ad": "Emrah Sakallıoğlu", "durum": { "5": "i" } },
     { "ad": "Elif Sıla Gönen", "durum": { "4": "k", "5": "i" } },
-    { "ad": "Gülpembe Aydın", "durum": {} },
+    { "ad": "Gülpembe Aydın", "sonSans": true, "durum": { "4": "d", "5": "d" } },
     { "ad": "İbrahim Ozan Ceberut", "durum": { "2": "k", "3": "k", "4": "k", "5": "i" } },
     { "ad": "Mert Çelik", "durum": { "1": "k", "2": "d", "3": "d", "4": "d", "5": "i" } },
     { "ad": "Taha Altaylı", "durum": { "2": "k", "3": "i", "4": "k", "5": "k" } },

@@ -195,7 +195,8 @@
     var kd = kademe(k);
     return { u: u, seri: seri, k: k, iz: iz, d: d, kd: kd,
       tam: k > 0 && k === seri.length,
-      bekliyor: sessiz === 1, dustu: son2.length === 2 && sessiz === 2 };
+      dustu: son2.length === 2 && sessiz === 2 && !u.sonSans,
+      bekliyor: sessiz >= 1 && !(son2.length === 2 && sessiz === 2 && !u.sonSans) };
   }
 
   function kart(x){
@@ -206,10 +207,10 @@
     }).join('') : '<i class="ti ti-sparkles iz" aria-hidden="true"></i>';
     var ozet;
     if (u.kurucu) ozet = 'Her okumanın ana moderatörü';
-    else if (!x.k) ozet = 'İlk okumasını bekliyoruz';
+    else if (!x.k && !x.bekliyor) ozet = 'İlk okumasını bekliyoruz';
     else if (x.tam && x.k > 1) ozet = 'Katıldığından beri her okumada';
     else {
-      var p = [x.k + ' okumada'];
+      var p = x.k ? [x.k + ' okumada'] : [];
       if (x.bekliyor && x.d) p.push(x.d + ' kez dönüş yapmadı');
       else if (x.iz) p.push(x.iz + ' kez izinli');
       ozet = p.join(' · ');

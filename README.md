@@ -40,6 +40,6 @@ Bu dosya sitede yayımlanmaz; bu depoda çalışacak her yeni sohbet için bir d
 
 ## Bekleyen işler
 
-- **Mommy (5. okuma)**: okuma yapıldı ve üye listesinde sayılıyor, ama ses kaydı hazırlanıyor. Lryiu Spotify linkini ve metni verince `data/seanslar.json`a 5 numaralı seans olarak eklenecek.
+- **Mommy (5. okuma)**: 29 Ekim 2026'da yapıldı, seans sayfası eklendi. Süre alanı boş; Lryiu kaydın süresini verince `sure` doldurulacak.
 - **Gülpembe Aydın**: `sonSans` ile "Dönüş bekleniyor"da. Bir sonraki okumada da dönüş yapmazsa listeden çıkarılacak (kaydı silinmez, `sonSans` kalkar).
 - **Filmi kimin seçtiği**: geçmiş okumalarda bilinmiyor. Lryiu söylerse `sectigi` alanıyla kartlarda gösterilebilir (henüz sayfada gösterimi yok, eklenmesi gerekir).

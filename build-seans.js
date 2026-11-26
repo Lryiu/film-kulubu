@@ -53,7 +53,13 @@ function kisa(html, n = 155) {
   return (sp > 80 ? c.slice(0, sp) : c).replace(/[\s,;:.–—-]+$/, '') + '…';
 }
 // Google'ın küçük önizleme görselleri paylaşım kartı için çok küçük: onlarda site kartını kullan
-const ogImage = (u) => (u && /^https:\/\//.test(u) && !/gstatic\.com|encrypted-tbn/.test(u) ? u : SITE + '/og-image.jpg');
+// Depodaki görseller (raw.githubusercontent) WhatsApp gibi önizlemelerde açılmayabiliyor:
+// aynı dosya sitede de yayında olduğu için onları film.lryiu.com adresinden ver.
+const ogImage = (u) => {
+  const m = /^https:\/\/raw\.githubusercontent\.com\/Lryiu\/film-kulubu\/[^/]+\/(.+)$/i.exec(u || '');
+  if (m) return SITE + '/' + m[1];
+  return u && /^https:\/\//.test(u) && !/gstatic\.com|encrypted-tbn/.test(u) ? u : SITE + '/og-image.jpg';
+};
 
 const SHARE_JS = `(function(){
   var box = document.querySelector(".share"); if(!box) return;
@@ -110,6 +116,8 @@ function page(s, slug, prev, next, slugs) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="${esc(ogImage(s.gorselUrl))}">
+<meta property="og:image:secure_url" content="${esc(ogImage(s.gorselUrl))}">
+<meta property="og:image:alt" content="${esc(s.baslik)}">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">

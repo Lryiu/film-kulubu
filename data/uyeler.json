@@ -13,10 +13,10 @@
     { "ad": "Ayşe Melis", "durum": { "1": "k", "2": "k", "3": "k", "4": "i", "5": "i", "6": "k" } },
     { "ad": "Çağlar Acar", "sectigi": [6], "durum": { "2": "k", "3": "k", "4": "k", "5": "k", "6": "k" } },
     { "ad": "Emrah Sakallıoğlu", "durum": { "5": "i", "6": "k" } },
-    { "ad": "Elif Sıla Gönen", "durum": { "4": "k", "5": "i" } },
-    { "ad": "Gülpembe Aydın", "sonSans": true, "durum": { "4": "d", "5": "d" } },
+    { "ad": "Elif Sıla Gönen", "durum": { "4": "k", "5": "i", "6": "i" } },
+    { "ad": "Gülpembe Aydın", "durum": { "4": "d", "5": "d", "6": "d" } },
     { "ad": "İbrahim Ozan Ceberut", "durum": { "2": "k", "3": "k", "4": "k", "5": "i", "6": "k" } },
-    { "ad": "Mert Çelik", "durum": { "1": "k", "2": "d", "3": "d", "4": "d", "5": "i" } },
+    { "ad": "Mert Çelik", "durum": { "1": "k", "2": "d", "3": "d", "4": "d", "5": "i", "6": "i" } },
     { "ad": "Taha Altaylı", "durum": { "2": "k", "3": "i", "4": "k", "5": "k", "6": "k" } },
     { "ad": "Yusuf Gazve Katırcıoğlu", "durum": { "4": "k", "5": "k", "6": "k" } }
   ]

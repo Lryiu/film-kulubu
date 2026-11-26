@@ -41,6 +41,6 @@ Bu dosya sitede yayımlanmaz; bu depoda çalışacak her yeni sohbet için bir d
 ## Bekleyen işler
 
 - **Mommy (5. okuma)**: 29 Ekim 2026'da yapıldı, seans sayfası eklendi.
-- **Witness for the Prosecution (6. okuma)**: 18 Kasım 2026'da yapıldı (7 kişi, 67 dk.), seans sayfası eklendi. Filmi Çağlar seçti (`sectigi: [6]`), kulüp puanı 9,8 (IMDb 8,4). Katılım işlendi (Elif Sıla ve Mert izinli, Gülpembe dönüş yok); Spotify bölüm linki (`podcastUrl`) Lryiu'dan bekleniyor.
+- **Witness for the Prosecution (6. okuma)**: 18 Kasım 2026'da yapıldı (7 kişi, 67 dk.), seans sayfası eklendi. Filmi Çağlar seçti (`sectigi: [6]`), kulüp puanı 9,8 (IMDb 8,4). Katılım işlendi (Elif Sıla ve Mert izinli, Gülpembe dönüş yok); Spotify bölüm linki eklendi.
 - **Gülpembe Aydın**: 6. okumada da dönüş yapmadı; `sonSans` kaldırıldı, listeden düştü (kaydı duruyor, dönerse geçmişiyle geri gelir).
 - **Filmi kimin seçtiği**: geçmiş okumalarda bilinmiyor. Lryiu söylerse `sectigi` alanıyla kartlarda gösterilebilir (henüz sayfada gösterimi yok, eklenmesi gerekir).
